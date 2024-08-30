@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: rgba($color: #dfdcdc, $alpha: 1);
+
+  main {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    p {
+      text-align: center;
+    }
+    #input_form {
+      .input_area {
+        height: 200px;
+        width: 100%;
+        border: 5px dot rgba(0, 0, 0, 0.6);
+        background-color: rgba($color: #e6e6e6, $alpha: 0.6);
+        .input_file {
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .preview {
+        width: 70%;
+        height: auto;
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px;
+        #videoPreview {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .wrap_time {
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-around;
+        width: 60%;
+        margin: 0 auto;
+        padding: 30px;
+        .wrap_timebtn {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          .btn_timeset {
+            width: 80px;
+            height: 40px;
+            font-size: 14px;
+            color: rgba($color: #ffffff, $alpha: 1);
+            background-color: rgba($color: #000000, $alpha: 1);
+          }
+        }
+      }
+      .wrap_btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

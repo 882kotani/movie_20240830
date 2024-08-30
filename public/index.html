@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>変換アプリ</title>
+    <link rel="stylesheet" href="./css/style_index.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style_common.css" />
+    <script src="./js/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header id="header">
+        <nav>
+          <h1><a href="/">動画変換</a></h1>
+        </nav>
+      </header>
+      <main>
+        <h2>動画・音声</h2>
+        <div class="wrap_media">
+          <form id="input_text" action="/comp" method="POST">
+            <button id="btn_index" type="submit">圧縮する</button>
+          </form>
+          <form id="input_text" action="/conv" method="POST">
+            <button id="btn_index" type="submit">変換する</button>
+          </form>
+          <form id="input_text" action="/cut" method="POST">
+            <button id="btn_index" type="submit">切り取る</button>
+          </form>
+          <form id="input_text" action="/comb" method="POST">
+            <button id="btn_index" type="submit">結合する</button>
+          </form>
+          <form id="input_text" action="/audio_increase" method="POST">
+            <button id="btn_index" type="submit">音量を上げる</button>
+          </form>
+        </div>
+        <h2>音声</h2>
+        <div class="wrap_media">
+          <form id="input_text" action="/cut_audio" method="POST">
+            <button id="btn_index" type="submit">切り取る</button>
+          </form>
+          <form id="input_text" action="/genmp4" method="POST">
+            <button id="btn_index" type="submit">mp4を作る</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>動画変換</title>
+    <link rel="stylesheet" href="./css/style_genmp4.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style_common.css" />
+    <!-- <script src="./js/main.js"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <header id="header">
+        <nav>
+          <h1><a href="/">動画結合</a></h1>
+        </nav>
+      </header>
+      <main>
+        <p>mp3と画像からmp4を生成します。</p>
+        <div class="wrap">
+          <form
+            id="input_form"
+            action="/genmp4_conv"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="wrap_movie">
+              <div class="movie">
+                <h3>音声</h3>
+                <div class="input_area">
+                  <input class="input_file" type="file" name="file1" />
+                </div>
+              </div>
+              <div class="movie">
+                <h3>画像</h3>
+                <div class="input_area">
+                  <input class="input_file" type="file" name="file2" />
+                </div>
+              </div>
+            </div>
+            <div class="wrap_btn">
+              <button id="btn_exe" type="submit">生成</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

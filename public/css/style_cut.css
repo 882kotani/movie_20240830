@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #dfdcdc;
+}
+.container main {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+.container main p {
+  text-align: center;
+}
+.container main #input_form .input_area {
+  height: 200px;
+  width: 100%;
+  border: 5px dot rgba(0, 0, 0, 0.6);
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.container main #input_form .input_area .input_file {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.container main #input_form .preview {
+  width: 70%;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+.container main #input_form .preview #videoPreview {
+  width: 100%;
+  height: 100%;
+}
+.container main #input_form .wrap_time {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px;
+}
+.container main #input_form .wrap_time .wrap_timebtn {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.container main #input_form .wrap_time .wrap_timebtn .btn_timeset {
+  width: 80px;
+  height: 40px;
+  font-size: 14px;
+  color: white;
+  background-color: black;
+}
+.container main #input_form .wrap_btn {
+  width: 100%;
+  text-align: center;
+}/*# sourceMappingURL=style_cut.css.map */

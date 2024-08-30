@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>動画変換</title>
+    <link rel="stylesheet" href="./css/style_cut.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style_common.css" />
+    <script src="./js/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header id="header">
+        <nav>
+          <h1><a href="/">動画カット</a></h1>
+        </nav>
+      </header>
+      <main>
+        <p>変換後自動的にダウンロードされます</p>
+
+        <form
+          id="input_form"
+          action="/cut_conv"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="input_area">
+            <input
+              class="input_file"
+              type="file"
+              name="file"
+              onchange="preview(this)"
+            />
+          </div>
+          <div class="preview">
+            <video id="videoPreview" controls></video>
+          </div>
+
+          <div class="wrap_time">
+            <input
+              type="hidden"
+              id="input_start_time"
+              name="input_start_time"
+            />
+            <input type="hidden" id="input_fin_time" name="input_fin_time" />
+
+            <div class="wrap_timebtn">
+              <button id="btn_start_time" class="btn_timeset" type="button">
+                START
+              </button>
+              <span id="start_time"></span>
+            </div>
+
+            <div class="wrap_timebtn">
+              <button id="btn_fin_time" class="btn_timeset" type="button">
+                STOP
+              </button>
+              <span id="fin_time"></span>
+            </div>
+          </div>
+          <div class="wrap_btn">
+            <button id="btn_exe" type="submit">切り取る</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script>
+      var videoElem = document.getElementById("videoPreview");
+
+      videoElem.addEventListener("timeupdate", function () {
+        let time_hh = Math.floor((videoElem.currentTime % 86400) / 3600);
+        let time_mm = Math.floor((videoElem.currentTime % 3600) / 60);
+        let time_ss = Math.floor(videoElem.currentTime % 60);
+        let time_ms = Math.round(
+          (videoElem.currentTime - Math.floor(videoElem.currentTime)) * 1000
+        );
+        time_hh = Math.floor((videoElem.currentTime % 86400) / 3600);
+        time_mm = Math.floor((videoElem.currentTime % 3600) / 60);
+        time_ss = Math.floor(videoElem.currentTime % 60);
+        time_ms = Math.round(
+          (videoElem.currentTime - Math.floor(videoElem.currentTime)) * 1000
+        );
+        let StartTime = document.getElementById("start_time");
+        let FinTime = document.getElementById("fin_time");
+        let button_start = document.getElementById("btn_start_time");
+        let button_fin = document.getElementById("btn_fin_time");
+
+        let start_time_judge = "";
+        let fin_time_judge = "";
+
+        button_start.addEventListener("click", function () {
+          if (time_hh < 10) time_hh = "0" + time_hh;
+          if (time_mm < 10) time_mm = "0" + time_mm;
+          if (time_ss < 10) time_ss = "0" + time_ss;
+          if (time_ms < 10) time_ms = "0" + time_ms;
+
+          StartTime.innerText =
+            // "hh:mm:ss:ms：" +
+            time_hh + ":" + time_mm + ":" + time_ss + "." + time_ms;
+
+          document.getElementById("input_start_time").value =
+            time_hh + ":" + time_mm + ":" + time_ss + "." + time_ms;
+
+          start_time_judge = videoElem.currentTime;
+        });
+        button_fin.addEventListener("click", function () {
+          if (time_hh < 10) time_hh = "0" + time_hh;
+          if (time_mm < 10) time_mm = "0" + time_mm;
+          if (time_ss < 10) time_ss = "0" + time_ss;
+          if (time_ms < 10) time_ms = "0" + time_ms;
+          FinTime.innerText =
+            // "hh:mm:ss:ms：" +
+            time_hh + ":" + time_mm + ":" + time_ss + "." + time_ms;
+
+          document.getElementById("input_fin_time").value =
+            time_hh + ":" + time_mm + ":" + time_ss + "." + time_ms;
+
+          start_fin_judge = videoElem.currentTime;
+        });
+
+        // document.addEventListener("submit", function(){
+        let form = document.getElementById("input_form");
+        form.addEventListener("submit", function (e) {
+          let flag = false;
+          e.preventDefault();
+          if (start_time_judge - fin_time_judge > 0) {
+            console.log("OK");
+            form.submit();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
